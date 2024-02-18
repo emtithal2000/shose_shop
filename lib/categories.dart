@@ -25,10 +25,11 @@ class _CategoriesState extends State<Categories> {
           InkWell(
             onTap: () {
               Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const Cart(),
-                  ));
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const Cart(),
+                ),
+              );
             },
             child: const Icon(Icons.shopping_cart_checkout_rounded),
           ),
@@ -96,9 +97,10 @@ class _CategoriesState extends State<Categories> {
                   child: Text(
                     categories[index],
                     style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                        color: index == i ? Colors.black : Colors.grey),
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: index == i ? Colors.black : Colors.grey,
+                    ),
                   ),
                 );
               },
@@ -127,7 +129,10 @@ class _CategoriesState extends State<Categories> {
                     borderRadius: BorderRadius.circular(20),
                     boxShadow: const [
                       BoxShadow(
-                          blurRadius: 20, spreadRadius: 5, color: Colors.grey),
+                        blurRadius: 20,
+                        spreadRadius: 5,
+                        color: Colors.grey,
+                      ),
                     ],
                   ),
                   child: Padding(
@@ -169,17 +174,18 @@ class _CategoriesState extends State<Categories> {
                             ),
                             InkWell(
                               onTap: () {
-                                shoseData[index].total =
-                                    shoseData[index].shoesPrice;
+                                total = 0; //!to delete old price
                                 setState(() {
                                   cart.add(shoseData[index]);
-                                  subtotal = subtotal + shoseData[index].total;
-                                  delivery = cart.length * 0.07;
-                                  total += subtotal + delivery;
+                                  subtotal +=
+                                      shoseData[index].shoesPrice; //10 - 30
+                                  delivery = cart.length * 0.07; //0.07 - 0.14
+                                  total += subtotal + delivery; //10.07 - 40.14
                                 });
                               },
                               child: const Icon(
-                                  Icons.shopping_cart_checkout_rounded),
+                                Icons.shopping_cart_checkout_rounded,
+                              ),
                             ),
                           ],
                         ),
