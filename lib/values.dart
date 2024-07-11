@@ -1,6 +1,6 @@
 import 'package:bag_shop/categories.dart';
+import 'package:bag_shop/idea/pick_product.dart';
 import 'package:bag_shop/models/shoes_model.dart';
-import 'package:bag_shop/pick_product.dart';
 import 'package:bag_shop/settings.dart';
 import 'package:bag_shop/shopping_cart.dart';
 
