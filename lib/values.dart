@@ -1,4 +1,8 @@
+import 'package:bag_shop/categories.dart';
 import 'package:bag_shop/models/shoes_model.dart';
+import 'package:bag_shop/profile.dart';
+import 'package:bag_shop/settings.dart';
+import 'package:bag_shop/shopping_cart.dart';
 
 List<String> categories = [
   'New',
@@ -8,6 +12,12 @@ List<String> categories = [
   'Men',
   'Sport ',
   'Formal '
+];
+var items = [
+  const Profile(), //0
+  const Categories(),
+  const Cart(),
+  const Settings(), //2
 ];
 double subtotal = 0;
 double delivery = 0;
@@ -46,5 +56,5 @@ List<ShoesModel> shoseData = [
     shoesImg: 'assets/images/shoes5.jpg',
     shoesName: 'Latest Men Summer Shoes',
     shoesPrice: 35,
-  )
+  ),
 ];

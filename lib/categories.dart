@@ -1,4 +1,5 @@
 import 'package:bag_shop/values.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:gap/gap.dart';
@@ -14,13 +15,14 @@ class Categories extends StatefulWidget {
 }
 
 class _CategoriesState extends State<Categories> {
+  int currentIndex = 0;
   int i = 0;
   int isAdd = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(Iconsax.menu_1),
+        leading: const Icon(Icons.menu),
         actions: [
           InkWell(
             onTap: () {
@@ -59,7 +61,8 @@ class _CategoriesState extends State<Categories> {
                     margin: const EdgeInsets.all(4),
                     padding: const EdgeInsets.all(7),
                     decoration: const BoxDecoration(
-                        shape: BoxShape.circle, color: Colors.grey),
+                        shape: BoxShape.circle,
+                        color: Color.fromARGB(166, 158, 158, 158)),
                     child: Image.asset(
                       'assets/images/search.png',
                       color: Colors.black,
@@ -97,7 +100,7 @@ class _CategoriesState extends State<Categories> {
                   child: Text(
                     categories[index],
                     style: TextStyle(
-                      fontSize: 25,
+                      fontSize: currentIndex == index ? 30 : 25,
                       fontWeight: FontWeight.bold,
                       color: index == i ? Colors.black : Colors.grey,
                     ),

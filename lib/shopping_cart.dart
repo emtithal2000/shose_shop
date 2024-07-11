@@ -149,7 +149,7 @@ class _CartState extends State<Cart> {
                   ),
                   Expanded(
                     child: Container(
-                      color: Colors.amber,
+                      color: const Color.fromARGB(118, 226, 226, 225),
                       padding: EdgeInsets.symmetric(
                         horizontal: getProportionateScreenWidth(25),
                       ),
