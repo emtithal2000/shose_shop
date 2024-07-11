@@ -1,6 +1,6 @@
 import 'package:bag_shop/categories.dart';
 import 'package:bag_shop/models/shoes_model.dart';
-import 'package:bag_shop/profile.dart';
+import 'package:bag_shop/pick_product.dart';
 import 'package:bag_shop/settings.dart';
 import 'package:bag_shop/shopping_cart.dart';
 
@@ -15,7 +15,7 @@ List<String> categories = [
 ];
 var items = [
   const Categories(),
-  const Profile(), //0
+  const PickProducts(), //0
   const Cart(),
   const Settings(), //2
 ];
