@@ -73,19 +73,19 @@ class _NavigationState extends State<Navigation> {
         items: [
           Icon(
             Icons.home,
-            color: index == 0 ? Colors.grey : Colors.black,
+            color: index == 0 ? Colors.white : Colors.black,
           ),
           Icon(
             Icons.favorite,
-            color: index == 0 ? Colors.grey : Colors.black,
+            color: index == 1 ? Colors.white : Colors.black,
           ),
           Icon(
             Icons.shopping_cart,
-            color: index == 0 ? Colors.grey : Colors.black,
+            color: index == 2 ? Colors.white : Colors.black,
           ),
           Icon(
             Icons.person,
-            color: index == 0 ? Colors.grey : Colors.black,
+            color: index == 3 ? Colors.white : Colors.black,
           ),
         ],
         onTap: (value) {
@@ -93,8 +93,9 @@ class _NavigationState extends State<Navigation> {
             index = value;
           });
         },
-        buttonBackgroundColor: Colors.white,
-        color: const Color(0xffd0d7d3),
+        buttonBackgroundColor: Colors.grey,
+        height: 65,
+        color: Colors.grey,
         backgroundColor: Colors.transparent,
       ),
       body: items[index],

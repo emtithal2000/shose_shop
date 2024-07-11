@@ -1,4 +1,4 @@
-import 'package:bag_shop/categories.dart';
+import 'package:bag_shop/navigation.dart';
 import 'package:bag_shop/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const Scaffold(
         resizeToAvoidBottomInset: false,
-        body: Categories(),
+        body: Navigation(),
       ),
     );
   }

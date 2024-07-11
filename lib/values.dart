@@ -14,8 +14,8 @@ List<String> categories = [
   'Formal '
 ];
 var items = [
-  const Profile(), //0
   const Categories(),
+  const Profile(), //0
   const Cart(),
   const Settings(), //2
 ];

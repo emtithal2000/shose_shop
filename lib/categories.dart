@@ -1,10 +1,8 @@
+import 'package:bag_shop/size_config.dart';
 import 'package:bag_shop/values.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:gap/gap.dart';
 
-import 'iconsax_icons.dart';
 import 'shopping_cart.dart';
 
 class Categories extends StatefulWidget {
@@ -78,12 +76,15 @@ class _CategoriesState extends State<Categories> {
               alignment: Alignment.topLeft,
               child: Text(
                 'Categories',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),
           SizedBox(
-            height: 40,
+            height: 30,
             child: ListView.separated(
               itemCount: categories.length,
               scrollDirection: Axis.horizontal,
@@ -97,19 +98,26 @@ class _CategoriesState extends State<Categories> {
                   },
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
-                  child: Text(
-                    categories[index],
-                    style: TextStyle(
-                      fontSize: currentIndex == index ? 30 : 25,
-                      fontWeight: FontWeight.bold,
-                      color: index == i ? Colors.black : Colors.grey,
+                  //! Use AnimatedScale to change text scale
+                  //! Set text size to fixed size to prevent wrong design
+                  child: AnimatedScale(
+                    duration: const Duration(milliseconds: 300),
+                    scale: i == index ? 1.125 : 1,
+                    child: Text(
+                      categories[index],
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight:
+                            i == index ? FontWeight.bold : FontWeight.normal,
+                        color: index == i ? Colors.black : Colors.grey,
+                      ),
                     ),
                   ),
                 );
               },
               itemBuilder: (context, index) {
-                return const SizedBox(
-                  width: 20,
+                return SizedBox(
+                  width: getProportionateScreenWidth(20),
                 );
               },
             ),
