@@ -38,6 +38,13 @@ dependencies:
   gap:  
   motion_tab_bar_v2:
   curved_navigation_bar:
+  firebase_core:
+  water_drop_nav_bar:
+  provider:
+  firebase_database:
+  http:
+
+
 
 
 
@@ -80,17 +87,28 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+  fonts:
+    - family: CroissantOne
+      fonts:
+        - asset: assets/fonts/CroissantOne-Regular.ttf
+    - family: NotoArabic
+      fonts:
+        - asset: assets/fonts/NotoNaskhArabic-Regular.ttf
+    - family: Emtithal
+      fonts:
+        - asset: assets/fonts/NotoSansArabic-Regular.ttf
+    - family: Noto
+      fonts:
+        - asset: assets/fonts/Noto.ttf
+    - family: iconsax
+      fonts:
+        - asset: assets/fonts/iconsax.ttf
+    - family: Lobster
+      fonts:
+        - asset: assets/fonts/Lobster-Regular.ttf
+    - family: Lateef
+      fonts:
+        - asset: assets/fonts/Lateef-Regular.ttf      
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

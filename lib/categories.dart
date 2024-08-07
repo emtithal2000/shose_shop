@@ -20,7 +20,6 @@ class _CategoriesState extends State<Categories> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(Icons.menu),
         actions: [
           InkWell(
             onTap: () {
@@ -35,10 +34,68 @@ class _CategoriesState extends State<Categories> {
           ),
           const Gap(15),
           const CircleAvatar(
+            backgroundColor: Colors.white,
             backgroundImage: AssetImage('assets/images/avatar2.png'),
           ),
           const Gap(10),
         ],
+      ),
+      drawer: Drawer(
+        clipBehavior: Clip.none,
+        child: Column(
+          children: [
+            Stack(
+              clipBehavior: Clip.none,
+              children: [
+                DrawerHeader(
+                  margin: EdgeInsets.zero,
+                  padding: EdgeInsets.zero,
+                  child: Container(
+                    width: 550,
+                    decoration: const BoxDecoration(color: Colors.grey),
+                    child: const Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CircleAvatar(
+                            radius: 35,
+                            backgroundImage:
+                                AssetImage('assets/images/avatar2.png'),
+                          ),
+                          Gap(10),
+                          Text(
+                            "Emtithal ALjabri",
+                            style: TextStyle(fontFamily: "Noto"),
+                          ),
+                          Text(
+                            "emtithal@gmail.com",
+                            style: TextStyle(fontFamily: "Noto"),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 500,
+              child: ListView.separated(
+                itemCount: drowernames.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    leading: drowerIcons[index],
+                    title: Text(drowernames[index]),
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  return const Gap(15);
+                },
+              ),
+            ),
+          ],
+        ),
       ),
       body: Column(
         children: [

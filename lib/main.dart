@@ -1,24 +1,34 @@
-import 'package:bag_shop/navigation.dart';
+import 'package:bag_shop/firebase/users_api.dart';
+import 'package:bag_shop/login.dart';
 import 'package:bag_shop/size_config.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => UsersApi(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     SizeConfig(context);
     return MaterialApp(
-      theme: ThemeData(useMaterial3: true),
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        useMaterial3: true,
+      ),
       home: const Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: Navigation(),
+        body: Login(),
       ),
     );
   }

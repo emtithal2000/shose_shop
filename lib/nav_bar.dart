@@ -1,20 +1,23 @@
 import 'package:bag_shop/values.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
 
-class Navigation extends StatefulWidget {
-  const Navigation({super.key});
+class NavBar extends StatefulWidget {
+  const NavBar({super.key});
 
   @override
-  State<Navigation> createState() => _NavigationState();
+  State<NavBar> createState() => _NavBarState();
 }
 
-class _NavigationState extends State<Navigation> {
+class _NavBarState extends State<NavBar> {
   int index = 0;
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
+
       // bottomNavigationBar: MotionTabBar(
       //   initialSelectedTab: "Home",
       //   labels: const ["Profile", "Home", "Cart", "Settings"],
@@ -69,6 +72,7 @@ class _NavigationState extends State<Navigation> {
       //     });
       //   },
       // ),
+
       bottomNavigationBar: CurvedNavigationBar(
         items: [
           Icon(
@@ -98,6 +102,28 @@ class _NavigationState extends State<Navigation> {
         color: Colors.grey,
         backgroundColor: Colors.transparent,
       ),
+
+      // bottomNavigationBar: WaterDropNavBar(
+      //   backgroundColor: Colors.white,
+      //   onItemSelected: (index) {
+      //     setState(() {
+      //       selectedIndex = index;
+      //     });
+      //     // pageController.animateToPage(selectedIndex,
+      //     //     duration: const Duration(milliseconds: 400),
+      //     //     curve: Curves.easeOutQuad);
+      //   },
+      //   selectedIndex: selectedIndex,
+      //   barItems: [
+      //     BarItem(
+      //       filledIcon: Icons.bookmark_rounded,
+      //       outlinedIcon: Icons.bookmark_border_rounded,
+      //     ),
+      //     BarItem(
+      //         filledIcon: Icons.favorite_rounded,
+      //         outlinedIcon: Icons.favorite_border_rounded),
+      //   ],
+      // ),
       body: items[index],
     );
   }

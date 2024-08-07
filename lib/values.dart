@@ -3,6 +3,7 @@ import 'package:bag_shop/idea/pick_product.dart';
 import 'package:bag_shop/models/shoes_model.dart';
 import 'package:bag_shop/settings.dart';
 import 'package:bag_shop/shopping_cart.dart';
+import 'package:flutter/material.dart';
 
 List<String> categories = [
   'New',
@@ -12,6 +13,20 @@ List<String> categories = [
   'Men',
   'Sport ',
   'Formal '
+];
+List<Icon> drowerIcons = [
+  const Icon(Icons.email),
+  const Icon(Icons.phone),
+  const Icon(Icons.favorite),
+  const Icon(Icons.shopping_cart),
+  const Icon(Icons.settings),
+];
+List<String> drowernames = [
+  "Email",
+  "Phone Number",
+  "Favorite",
+  "Cart",
+  "Settings",
 ];
 var items = [
   const Categories(),
