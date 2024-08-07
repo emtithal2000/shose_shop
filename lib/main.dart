@@ -1,5 +1,6 @@
 import 'package:bag_shop/firebase/users_api.dart';
 import 'package:bag_shop/login.dart';
+import 'package:bag_shop/nav_bar.dart';
 import 'package:bag_shop/size_config.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -27,9 +28,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const Scaffold(
-        body: Login(),
-      ),
+      home: const NavBar(),
     );
   }
 }

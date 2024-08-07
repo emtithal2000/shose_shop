@@ -26,10 +26,11 @@ class _LoginState extends State<Login> {
             const Text(
               "Log In",
               style: TextStyle(
-                  fontSize: 50,
-                  fontFamily: "Noto",
-                  color: Color(0xff3e4267),
-                  fontWeight: FontWeight.bold),
+                fontSize: 50,
+                fontFamily: "Noto",
+                color: Color(0xff3e4267),
+                fontWeight: FontWeight.bold,
+              ),
             ),
             const Gap(80),
             Container(

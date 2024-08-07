@@ -17,6 +17,7 @@ class UsersApi extends ChangeNotifier {
         'Password': password,
       }),
     );
+
     notifyListeners();
   }
 }

@@ -1,5 +1,4 @@
 import 'package:bag_shop/values.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
 
@@ -13,11 +12,11 @@ class NavBar extends StatefulWidget {
 class _NavBarState extends State<NavBar> {
   int index = 0;
   int selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-
       // bottomNavigationBar: MotionTabBar(
       //   initialSelectedTab: "Home",
       //   labels: const ["Profile", "Home", "Cart", "Settings"],
@@ -73,57 +72,64 @@ class _NavBarState extends State<NavBar> {
       //   },
       // ),
 
-      bottomNavigationBar: CurvedNavigationBar(
-        items: [
-          Icon(
-            Icons.home,
-            color: index == 0 ? Colors.white : Colors.black,
-          ),
-          Icon(
-            Icons.favorite,
-            color: index == 1 ? Colors.white : Colors.black,
-          ),
-          Icon(
-            Icons.shopping_cart,
-            color: index == 2 ? Colors.white : Colors.black,
-          ),
-          Icon(
-            Icons.person,
-            color: index == 3 ? Colors.white : Colors.black,
-          ),
-        ],
-        onTap: (value) {
+      // bottomNavigationBar: CurvedNavigationBar(
+      //   items: [
+      //     Icon(
+      //       Icons.home,
+      //       color: index == 0 ? Colors.white : Colors.black,
+      //     ),
+      //     Icon(
+      //       Icons.favorite,
+      //       color: index == 1 ? Colors.white : Colors.black,
+      //     ),
+      //     Icon(
+      //       Icons.shopping_cart,
+      //       color: index == 2 ? Colors.white : Colors.black,
+      //     ),
+      //     Icon(
+      //       Icons.person,
+      //       color: index == 3 ? Colors.white : Colors.black,
+      //     ),
+      //   ],
+      //   onTap: (value) {
+      //     setState(() {
+      //       index = value;
+      //     });
+      //   },
+      //   buttonBackgroundColor: Colors.grey,
+      //   height: 65,
+      //   color: Colors.grey,
+      //   backgroundColor: Colors.transparent,
+      // ),
+
+      bottomNavigationBar: WaterDropNavBar(
+        backgroundColor: Colors.white,
+        onItemSelected: (index) {
           setState(() {
-            index = value;
+            selectedIndex = index;
           });
         },
-        buttonBackgroundColor: Colors.grey,
-        height: 65,
-        color: Colors.grey,
-        backgroundColor: Colors.transparent,
+        selectedIndex: selectedIndex,
+        bottomPadding: 10,
+        barItems: [
+          BarItem(
+            filledIcon: Icons.bookmark_rounded,
+            outlinedIcon: Icons.bookmark_border_rounded,
+          ),
+          BarItem(
+            filledIcon: Icons.favorite_rounded,
+            outlinedIcon: Icons.favorite_border_rounded,
+          ),
+          BarItem(
+            filledIcon: Icons.favorite_rounded,
+            outlinedIcon: Icons.favorite_border_rounded,
+          ),
+          BarItem(
+            filledIcon: Icons.favorite_rounded,
+            outlinedIcon: Icons.favorite_border_rounded,
+          ),
+        ],
       ),
-
-      // bottomNavigationBar: WaterDropNavBar(
-      //   backgroundColor: Colors.white,
-      //   onItemSelected: (index) {
-      //     setState(() {
-      //       selectedIndex = index;
-      //     });
-      //     // pageController.animateToPage(selectedIndex,
-      //     //     duration: const Duration(milliseconds: 400),
-      //     //     curve: Curves.easeOutQuad);
-      //   },
-      //   selectedIndex: selectedIndex,
-      //   barItems: [
-      //     BarItem(
-      //       filledIcon: Icons.bookmark_rounded,
-      //       outlinedIcon: Icons.bookmark_border_rounded,
-      //     ),
-      //     BarItem(
-      //         filledIcon: Icons.favorite_rounded,
-      //         outlinedIcon: Icons.favorite_border_rounded),
-      //   ],
-      // ),
       body: items[index],
     );
   }
