@@ -43,6 +43,7 @@ dependencies:
   provider:
   firebase_database:
   http:
+  image_picker:
 
 
 

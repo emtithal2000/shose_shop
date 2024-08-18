@@ -1,18 +1,19 @@
+import 'package:bag_shop/shopping_cart.dart';
 import 'package:bag_shop/size_config.dart';
 import 'package:bag_shop/values.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import 'shopping_cart.dart';
-
-class Categories extends StatefulWidget {
-  const Categories({super.key});
+class Products extends StatefulWidget {
+  Products({super.key});
+  final ref = FirebaseDatabase.instance.ref().child('Products');
 
   @override
-  State<Categories> createState() => _CategoriesState();
+  State<Products> createState() => _ProductsState();
 }
 
-class _CategoriesState extends State<Categories> {
+class _ProductsState extends State<Products> {
   int currentIndex = 0;
   int i = 0;
   int isAdd = 0;

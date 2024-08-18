@@ -113,11 +113,11 @@ class _CartState extends State<Cart> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: getProportionateScreenHeight(250),
+              height: height(250),
               clipBehavior: Clip.hardEdge,
               margin: EdgeInsets.symmetric(
-                vertical: getProportionateScreenHeight(80),
-                horizontal: getProportionateScreenWidth(20),
+                vertical: height(80),
+                horizontal: height(20),
               ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
@@ -128,7 +128,7 @@ class _CartState extends State<Cart> {
                     child: Container(
                       color: Colors.grey,
                       padding: EdgeInsets.symmetric(
-                        horizontal: getProportionateScreenWidth(25),
+                        horizontal: width(25),
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -145,13 +145,13 @@ class _CartState extends State<Cart> {
                   Divider(
                     color: Colors.black,
                     thickness: 3,
-                    height: getProportionateScreenHeight(3),
+                    height: height(3),
                   ),
                   Expanded(
                     child: Container(
                       color: const Color.fromARGB(118, 226, 226, 225),
                       padding: EdgeInsets.symmetric(
-                        horizontal: getProportionateScreenWidth(25),
+                        horizontal: height(25),
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -159,13 +159,13 @@ class _CartState extends State<Cart> {
                           buildDetails(
                               'Total', '${total.toStringAsFixed(2)}\$'),
                           Gap(
-                            getProportionateScreenHeight(25),
+                            height(25),
                           ),
                           ElevatedButton(
                             onPressed: () {},
                             child: ListTile(
                               contentPadding: EdgeInsets.only(
-                                left: getProportionateScreenWidth(100),
+                                left: height(100),
                               ),
                               dense: true,
                               title: const Text('Pay'),

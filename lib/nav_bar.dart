@@ -110,23 +110,24 @@ class _NavBarState extends State<NavBar> {
           });
         },
         selectedIndex: selectedIndex,
-        bottomPadding: 10,
+        bottomPadding: 8,
+        waterDropColor: const Color(0xff3e4267),
         barItems: [
           BarItem(
-            filledIcon: Icons.bookmark_rounded,
-            outlinedIcon: Icons.bookmark_border_rounded,
+            filledIcon: Icons.home,
+            outlinedIcon: Icons.home_outlined,
           ),
           BarItem(
             filledIcon: Icons.favorite_rounded,
             outlinedIcon: Icons.favorite_border_rounded,
           ),
           BarItem(
-            filledIcon: Icons.favorite_rounded,
-            outlinedIcon: Icons.favorite_border_rounded,
+            filledIcon: Icons.shopping_cart,
+            outlinedIcon: Icons.shopping_cart_outlined,
           ),
           BarItem(
-            filledIcon: Icons.favorite_rounded,
-            outlinedIcon: Icons.favorite_border_rounded,
+            filledIcon: Icons.person,
+            outlinedIcon: Icons.person_2_outlined,
           ),
         ],
       ),
