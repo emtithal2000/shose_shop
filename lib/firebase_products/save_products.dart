@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bag_shop/firebase_products/firebase_services.dart';
 import 'package:bag_shop/firebase_products/products.dart';
 import 'package:bag_shop/size_config.dart';
@@ -44,12 +46,24 @@ class _SaveProductsState extends State<SaveProducts> {
                 onTap: () async {
                   final picker = ImagePicker();
                   image = await picker.pickImage(source: ImageSource.gallery);
+                  setState(() {});
                 },
                 borderRadius: BorderRadius.circular(100),
                 child: CircleAvatar(
-                  radius: height(100),
-                  child: const Text("Image"),
-                ),
+                    radius: height(100),
+                    backgroundImage: image?.path != null
+                        ? FileImage(
+                            File(image!.path),
+                          )
+                        : null,
+                    child: image?.path == null
+                        ? Text(
+                            "Image",
+                            style: TextStyle(
+                              fontSize: height(35),
+                            ),
+                          )
+                        : null),
               ),
               const Gap(30),
               TextFormField(
