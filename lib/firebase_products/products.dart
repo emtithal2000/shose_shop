@@ -2,6 +2,7 @@ import 'package:bag_shop/shopping_cart.dart';
 import 'package:bag_shop/size_config.dart';
 import 'package:bag_shop/values.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -201,75 +202,84 @@ class _ProductsState extends State<Products> {
                   mainAxisExtent: 210),
               padding: const EdgeInsets.all(25),
               itemBuilder: (context, index) {
-                return Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: const [
-                      BoxShadow(
-                        blurRadius: 20,
-                        spreadRadius: 5,
-                        color: Colors.grey,
+                return FirebaseAnimatedList(
+                  query: ref,
+                  duration: const Duration(seconds: 1),
+                  physics: const BouncingScrollPhysics(),
+                  itemBuilder: (context, snapshot, animation, index) {
+                    return Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: const [
+                          BoxShadow(
+                            blurRadius: 20,
+                            spreadRadius: 5,
+                            color: Colors.grey,
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Card(
-                          shadowColor: Colors.grey,
-                          elevation: 20,
-                          clipBehavior: Clip.antiAlias,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Image.asset(
-                            shoseData[index].shoesImg,
-                            fit: BoxFit.cover,
-                            height: 100,
-                          ),
-                        ),
-                        const Gap(15),
-                        Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            shoseData[index].shoesName,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        const Gap(10),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
-                              '\$${shoseData[index].shoesPrice}',
-                            ),
-                            InkWell(
-                              onTap: () {
-                                total = 0; //!to delete old price
-                                setState(() {
-                                  cart.add(shoseData[index]);
-                                  subtotal +=
-                                      shoseData[index].shoesPrice; //10 - 30
-                                  delivery = cart.length * 0.07; //0.07 - 0.14
-                                  total += subtotal + delivery; //10.07 - 40.14
-                                });
-                              },
-                              child: const Icon(
-                                Icons.shopping_cart_checkout_rounded,
+                            Card(
+                              shadowColor: Colors.grey,
+                              elevation: 20,
+                              clipBehavior: Clip.antiAlias,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
                               ),
+                              child: Image.asset(
+                                shoseData[index].shoesImg,
+                                fit: BoxFit.cover,
+                                height: 100,
+                              ),
+                            ),
+                            const Gap(15),
+                            Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                shoseData[index].shoesName,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            const Gap(10),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text(
+                                  '\$${shoseData[index].shoesPrice}',
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    total = 0; //!to delete old price
+                                    setState(() {
+                                      cart.add(shoseData[index]);
+                                      subtotal +=
+                                          shoseData[index].shoesPrice; //10 - 30
+                                      delivery =
+                                          cart.length * 0.07; //0.07 - 0.14
+                                      total +=
+                                          subtotal + delivery; //10.07 - 40.14
+                                    });
+                                  },
+                                  child: const Icon(
+                                    Icons.shopping_cart_checkout_rounded,
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
-                      ],
-                    ),
-                  ),
+                      ),
+                    );
+                  },
                 );
               },
             ),
