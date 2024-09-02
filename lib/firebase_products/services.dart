@@ -21,32 +21,6 @@ class DataServices extends ChangeNotifier {
   double delivery = 5;
   double total = 0;
 
-  List<String> categories = [
-    'New',
-    'Women',
-    'Brands',
-    'Best Sellers',
-    'Men',
-    'Sport ',
-    'Formal '
-  ];
-
-  List<Icon> drowerIcons = [
-    const Icon(Icons.email),
-    const Icon(Icons.phone),
-    const Icon(Icons.favorite),
-    const Icon(Icons.shopping_cart),
-    const Icon(Icons.settings),
-  ];
-
-  List<String> drowernames = [
-    "Email",
-    "Phone Number",
-    "Favorite",
-    "Cart",
-    "Settings",
-  ];
-
   List<ProductsDetails> products = [];
   List<ProductsDetails> cart = [];
 

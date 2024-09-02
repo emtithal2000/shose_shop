@@ -1,6 +1,7 @@
 import 'package:bag_shop/firebase_products/services.dart';
 import 'package:bag_shop/shopping_cart.dart';
 import 'package:bag_shop/size_config.dart';
+import 'package:bag_shop/values.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:provider/provider.dart';
@@ -83,12 +84,12 @@ class Products extends StatelessWidget {
                 SizedBox(
                   height: 500,
                   child: ListView.separated(
-                    itemCount: data.drowernames.length,
+                    itemCount: drowernames.length,
                     itemBuilder: (context, index) {
                       return ListTile(
-                        leading: data.drowerIcons[index],
+                        leading: drowerIcons[index],
                         iconColor: const Color(0xff3e4267),
-                        title: Text(data.drowernames[index]),
+                        title: Text(drowernames[index]),
                       );
                     },
                     separatorBuilder: (context, index) {
@@ -147,7 +148,7 @@ class Products extends StatelessWidget {
               SizedBox(
                 height: 45,
                 child: ListView.separated(
-                  itemCount: data.categories.length,
+                  itemCount: categories.length,
                   scrollDirection: Axis.horizontal,
                   physics: const BouncingScrollPhysics(),
                   separatorBuilder: (context, index) {
@@ -163,7 +164,7 @@ class Products extends StatelessWidget {
                         duration: const Duration(milliseconds: 300),
                         scale: data.i == index ? 1.125 : 1,
                         child: Text(
-                          data.categories[index],
+                          categories[index],
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: data.i == index
