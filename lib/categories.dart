@@ -3,8 +3,6 @@ import 'package:bag_shop/values.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import 'shopping_cart.dart';
-
 class Categories extends StatefulWidget {
   const Categories({super.key});
 
@@ -23,12 +21,12 @@ class _CategoriesState extends State<Categories> {
         actions: [
           InkWell(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const Cart(),
-                ),
-              );
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) => const Cart(),
+              //   ),
+              // );
             },
             child: const Icon(Icons.shopping_cart_checkout_rounded),
           ),

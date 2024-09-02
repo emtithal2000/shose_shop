@@ -4,7 +4,6 @@ import 'package:bag_shop/firebase_products/firebase_services.dart';
 import 'package:bag_shop/firebase_products/products.dart';
 import 'package:bag_shop/size_config.dart';
 import 'package:flutter/material.dart';
-
 import 'package:gap/gap.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';

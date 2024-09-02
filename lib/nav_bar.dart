@@ -103,7 +103,7 @@ class _NavBarState extends State<NavBar> {
       // ),
 
       bottomNavigationBar: WaterDropNavBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         onItemSelected: (index) {
           setState(() {
             selectedIndex = index;

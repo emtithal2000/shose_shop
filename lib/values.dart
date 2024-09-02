@@ -1,8 +1,8 @@
 import 'package:bag_shop/categories.dart';
+import 'package:bag_shop/firebase_products/products.dart';
 import 'package:bag_shop/idea/pick_product.dart';
 import 'package:bag_shop/models/shoes_model.dart';
 import 'package:bag_shop/settings.dart';
-import 'package:bag_shop/shopping_cart.dart';
 import 'package:flutter/material.dart';
 
 List<String> categories = [
@@ -29,9 +29,10 @@ List<String> drowernames = [
   "Settings",
 ];
 var items = [
+  const Products(),
   const Categories(),
   const PickProducts(), //0
-  const Cart(),
+  // const Cart(),
   const Settings(), //2
 ];
 double subtotal = 0;

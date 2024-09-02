@@ -1,186 +1,215 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:bag_shop/firebase_products/services.dart';
 import 'package:bag_shop/size_config.dart';
-import 'package:bag_shop/values.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:provider/provider.dart';
 
-class Cart extends StatefulWidget {
+class Cart extends StatelessWidget {
   const Cart({super.key});
 
   @override
-  State<Cart> createState() => _CartState();
-}
-
-class _CartState extends State<Cart> {
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: Stack(
-        children: [
-          Column(
-            children: [
-              const Text(
-                'Cart',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 50,
-                ),
-              ),
-              GridView.builder(
-                itemCount: cart.length,
-                physics: const BouncingScrollPhysics(),
-                shrinkWrap: true,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 30,
-                  mainAxisSpacing: 30,
-                  mainAxisExtent: 210,
-                ),
-                padding: const EdgeInsets.all(25),
-                itemBuilder: (context, index) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: const [
-                        BoxShadow(
-                          blurRadius: 20,
-                          spreadRadius: 5,
-                          color: Colors.grey,
-                        ),
-                      ],
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Card(
-                            shadowColor: Colors.grey,
-                            elevation: 20,
-                            clipBehavior: Clip.antiAlias,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Image.asset(
-                              cart[index].shoesImg,
-                              fit: BoxFit.cover,
-                              height: 100,
-                            ),
-                          ),
-                          const Gap(15),
-                          Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              cart[index].shoesName,
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                          const Gap(10),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Text(
-                                cart[index].shoesPrice.toString(),
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  subtotal -= cart[index].shoesPrice;
-                                  setState(() {
-                                    cart.removeAt(index);
-                                  });
-                                  delivery = cart.length * 0.07;
-                                  total = subtotal + delivery;
-                                },
-                                child: const Icon(
-                                  Icons.shopping_cart_checkout_rounded,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ],
+    return Consumer<DataServices>(
+      builder: (context, data, __) {
+        return Scaffold(
+          appBar: AppBar(
+            scrolledUnderElevation: 0,
+            elevation: 0,
+            backgroundColor: Colors.white,
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              height: height(250),
-              clipBehavior: Clip.hardEdge,
-              margin: EdgeInsets.symmetric(
-                vertical: height(80),
-                horizontal: height(20),
-              ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Column(
+          body: Stack(
+            children: [
+              Column(
                 children: [
-                  Expanded(
-                    child: Container(
-                      color: Colors.grey,
-                      padding: EdgeInsets.symmetric(
-                        horizontal: width(25),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          buildDetails(
-                              'Subtotal', '${subtotal.toStringAsFixed(2)}\$'),
-                          const Gap(5),
-                          buildDetails(
-                              'Delivery', '${delivery.toStringAsFixed(2)}\$'),
-                        ],
-                      ),
+                  const Text(
+                    'Cart',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 50,
                     ),
                   ),
-                  Divider(
-                    color: Colors.black,
-                    thickness: 3,
-                    height: height(3),
-                  ),
-                  Expanded(
-                    child: Container(
-                      color: const Color.fromARGB(118, 226, 226, 225),
-                      padding: EdgeInsets.symmetric(
-                        horizontal: height(25),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          buildDetails(
-                              'Total', '${total.toStringAsFixed(2)}\$'),
-                          Gap(
-                            height(25),
+                  data.cart.isNotEmpty
+                      ? SizedBox(
+                          height: height(400),
+                          child: GridView.builder(
+                            itemCount: data.cart.length,
+                            physics: const BouncingScrollPhysics(),
+                            shrinkWrap: true,
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              crossAxisSpacing: 30,
+                              mainAxisSpacing: 30,
+                              mainAxisExtent: 210,
+                            ),
+                            padding: const EdgeInsets.all(25),
+                            itemBuilder: (context, index) {
+                              return Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(20),
+                                  boxShadow: const [
+                                    BoxShadow(
+                                      blurRadius: 10,
+                                      spreadRadius: 1,
+                                      color: Colors.grey,
+                                    ),
+                                  ],
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Card(
+                                        shadowColor: Colors.grey,
+                                        elevation: 20,
+                                        clipBehavior: Clip.antiAlias,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                        ),
+                                        child: Image.asset(
+                                          'assets/images/${data.cart[index].image}',
+                                          fit: BoxFit.cover,
+                                          height: 100,
+                                        ),
+                                      ),
+                                      const Gap(15),
+                                      Align(
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          '${data.cart[index].name}',
+                                          textAlign: TextAlign.center,
+                                          style: const TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                      const Gap(10),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          Text(
+                                            '${data.cart[index].price}',
+                                          ),
+                                          InkWell(
+                                            onTap: () {
+                                              data.removeFromCart(
+                                                  data.cart[index]);
+                                            },
+                                            child: const Icon(
+                                              Icons.delete_forever_rounded,
+                                              color: Colors.red,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            },
                           ),
-                          ElevatedButton(
-                            onPressed: () {},
-                            child: ListTile(
-                              contentPadding: EdgeInsets.only(
-                                left: height(100),
-                              ),
-                              dense: true,
-                              title: const Text('Pay'),
+                        )
+                      : Container(
+                          alignment: Alignment.center,
+                          padding: EdgeInsets.only(
+                            top: height(300),
+                          ),
+                          child: Text(
+                            'No Item In Cart',
+                            style: TextStyle(
+                              fontSize: width(30),
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                        ],
-                      ),
-                    ),
-                  )
+                        ),
                 ],
               ),
-            ),
+              data.cart.isNotEmpty
+                  ? Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Container(
+                        height: height(250),
+                        clipBehavior: Clip.hardEdge,
+                        margin: EdgeInsets.only(
+                          bottom: height(15),
+                          left: height(20),
+                          right: height(20),
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                color: Colors.grey,
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: width(25),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    buildDetails(
+                                        'Subtotal', '\$${data.subTotal}'),
+                                    const Gap(5),
+                                    buildDetails('Count', '${data.count}'),
+                                    const Gap(5),
+                                    buildDetails('Tax',
+                                        '\$${data.tax.toStringAsFixed(2)}'),
+                                    const Gap(5),
+                                    buildDetails(
+                                        'Delivery', '\$${data.delivery}'),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Divider(
+                              color: Colors.black,
+                              thickness: 3,
+                              height: height(3),
+                            ),
+                            Expanded(
+                              child: Container(
+                                color: const Color.fromARGB(118, 226, 226, 225),
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: height(25),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    buildDetails('Total', '${data.total}\$'),
+                                    Gap(
+                                      height(25),
+                                    ),
+                                    ElevatedButton(
+                                      onPressed: () {},
+                                      child: ListTile(
+                                        contentPadding: EdgeInsets.only(
+                                          left: height(100),
+                                        ),
+                                        dense: true,
+                                        title: const Text('Pay'),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    )
+                  : Container(),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 
