@@ -7,9 +7,10 @@ import 'package:http/http.dart';
 
 class DataServices extends ChangeNotifier {
   DataServices() {
-    fetchDataApi();
+    // fetchDataApi();
+    readData();
   }
-  final ref = FirebaseDatabase.instance.ref().child('Products');
+  final refPath = FirebaseDatabase.instance.ref().child('Products');
 
   int currentIndex = 0;
   int i = 0;
@@ -22,6 +23,7 @@ class DataServices extends ChangeNotifier {
   double total = 0;
 
   List<ProductsDetails> products = [];
+  List<ProductsDetails> productsV2 = [];
   List<ProductsDetails> cart = [];
 
   changeI(int newI) {
@@ -74,13 +76,14 @@ class DataServices extends ChangeNotifier {
     DatabaseReference ref = FirebaseDatabase.instance.ref();
     var snapshot = await ref.child('Products').get();
 
+    // var snapshot2 = await refPath.get();
+
     for (var element in snapshot.children) {
-      products.add(
+      productsV2.add(
         ProductsDetails(
           name: element.child('Name').value.toString(),
           price: element.child('Price').value.toString(),
-
-          // image:
+          image: element.child('Image').value.toString(),
         ),
       );
     }

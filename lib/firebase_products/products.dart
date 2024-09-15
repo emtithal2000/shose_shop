@@ -188,7 +188,7 @@ class Products extends StatelessWidget {
               ),
               Expanded(
                 child: GridView.builder(
-                  itemCount: data.products.length,
+                  itemCount: data.productsV2.length,
                   physics: const BouncingScrollPhysics(),
                   shrinkWrap: true,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -200,6 +200,8 @@ class Products extends StatelessWidget {
                   padding: const EdgeInsets.all(25),
                   itemBuilder: (context, index) {
                     return Container(
+                      height: height(200),
+                      width: width(150),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
@@ -212,7 +214,7 @@ class Products extends StatelessWidget {
                         ],
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: EdgeInsets.symmetric(vertical: height(7)),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -224,16 +226,18 @@ class Products extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: Image.asset(
-                                'assets/images/${data.products[index].image}',
+                                'assets/images/${data.productsV2[index].image}',
                                 fit: BoxFit.cover,
-                                height: 100,
+                                height: height(100),
                               ),
                             ),
-                            const Gap(15),
-                            Align(
+                            const Gap(10),
+                            //!CTRL + .
+                            Container(
                               alignment: Alignment.center,
+                              width: width(105),
                               child: Text(
-                                '${data.products[index].name}',
+                                '${data.productsV2[index].name}',
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
                                   fontSize: 12,
@@ -246,11 +250,11 @@ class Products extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 Text(
-                                  '\$${data.products[index].price}',
+                                  '\$${data.productsV2[index].price}',
                                 ),
                                 InkWell(
                                   onTap: () {
-                                    data.addToCart(data.products[index]);
+                                    data.addToCart(data.productsV2[index]);
                                   },
                                   child: const Icon(
                                     Icons.add_shopping_cart_rounded,
