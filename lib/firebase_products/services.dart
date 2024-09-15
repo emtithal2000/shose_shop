@@ -69,4 +69,22 @@ class DataServices extends ChangeNotifier {
   }
 
   //TODO Create Fetch Using Sdk
+
+  Future<void> readData() async {
+    DatabaseReference ref = FirebaseDatabase.instance.ref();
+    var snapshot = await ref.child('Products').get();
+
+    for (var element in snapshot.children) {
+      products.add(
+        ProductsDetails(
+          name: element.child('Name').value.toString(),
+          price: element.child('Price').value.toString(),
+
+          // image:
+        ),
+      );
+    }
+
+    notifyListeners();
+  }
 }
