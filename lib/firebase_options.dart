@@ -17,7 +17,10 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -30,7 +33,10 @@ class DefaultFirebaseOptions {
           'you can reconfigure this by running the FlutterFire CLI again.',
         );
       case TargetPlatform.windows:
-        return windows;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for windows - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -43,40 +49,23 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBsbBIxK1Nx3yGN4anyKfXCUWEf9bOSY9I',
-    appId: '1:268295066252:web:e01734bbe7c21c5adde1a9',
-    messagingSenderId: '268295066252',
-    projectId: 'shoppingapp-e3f50',
-    authDomain: 'shoppingapp-e3f50.firebaseapp.com',
-    storageBucket: 'shoppingapp-e3f50.appspot.com',
-    measurementId: 'G-3V63727S2Z',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCKT8r7ORrKDiVoCMFlFsKnuAaX8wJxEEk',
-    appId: '1:268295066252:android:7a91c98e7e43925edde1a9',
-    messagingSenderId: '268295066252',
-    projectId: 'shoppingapp-e3f50',
-    storageBucket: 'shoppingapp-e3f50.appspot.com',
+    apiKey: 'AIzaSyCDlWcFhRlymHOJfqcjEGZiDk02fd3dZNU',
+    appId: '1:744143365152:android:73b32a91dd1b9b15078845',
+    messagingSenderId: '744143365152',
+    projectId: 'pizzaapp-c7a34',
+    databaseURL: 'https://pizzaapp-c7a34-default-rtdb.firebaseio.com',
+    storageBucket: 'pizzaapp-c7a34.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCwnlg6X_Uo8zkX1kTGpYIjSlU-HeIYTlc',
-    appId: '1:268295066252:ios:60c5534e8f76c793dde1a9',
-    messagingSenderId: '268295066252',
-    projectId: 'shoppingapp-e3f50',
-    storageBucket: 'shoppingapp-e3f50.appspot.com',
+    apiKey: 'AIzaSyAX0bsy6qlYKuR6Nkffld9nf53x_S4Pa9c',
+    appId: '1:744143365152:ios:505de20d40edbdb7078845',
+    messagingSenderId: '744143365152',
+    projectId: 'pizzaapp-c7a34',
+    databaseURL: 'https://pizzaapp-c7a34-default-rtdb.firebaseio.com',
+    storageBucket: 'pizzaapp-c7a34.appspot.com',
     iosBundleId: 'com.example.bagShop',
   );
 
-  static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyBsbBIxK1Nx3yGN4anyKfXCUWEf9bOSY9I',
-    appId: '1:268295066252:web:c9fc08edb382f095dde1a9',
-    messagingSenderId: '268295066252',
-    projectId: 'shoppingapp-e3f50',
-    authDomain: 'shoppingapp-e3f50.firebaseapp.com',
-    storageBucket: 'shoppingapp-e3f50.appspot.com',
-    measurementId: 'G-G1SFQXKNJK',
-  );
 }

@@ -38,12 +38,13 @@ dependencies:
   gap:  
   motion_tab_bar_v2:
   curved_navigation_bar:
-  firebase_core:
+  firebase_core: 
   water_drop_nav_bar:
   provider:
   firebase_database:
   http:
   image_picker:
+  iconsax_plus:
 
 
 

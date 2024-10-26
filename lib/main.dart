@@ -1,10 +1,8 @@
-import 'package:bag_shop/categories.dart';
 import 'package:bag_shop/firebase/users_api.dart';
 import 'package:bag_shop/firebase_products/firebase_services.dart';
 import 'package:bag_shop/firebase_products/services.dart';
 import 'package:bag_shop/nav_bar.dart';
 import 'package:bag_shop/size_config.dart';
-import 'package:bag_shop/splash_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

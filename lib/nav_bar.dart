@@ -1,6 +1,6 @@
-import 'package:bag_shop/iconsax_icons.dart';
 import 'package:bag_shop/values.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax_plus/iconsax_plus.dart';
 import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
 
 class NavBar extends StatefulWidget {
@@ -115,20 +115,20 @@ class _NavBarState extends State<NavBar> {
         waterDropColor: const Color.fromARGB(218, 100, 80, 91),
         barItems: [
           BarItem(
-            filledIcon: Iconsax.home1,
-            outlinedIcon: Iconsax.home,
+            filledIcon: IconsaxPlusBold.home_1,
+            outlinedIcon: IconsaxPlusBroken.home_1,
           ),
           BarItem(
-            filledIcon: Icons.favorite_rounded,
-            outlinedIcon: Icons.favorite_border_rounded,
+            filledIcon: IconsaxPlusBold.heart,
+            outlinedIcon: IconsaxPlusBroken.heart,
           ),
           BarItem(
-            filledIcon: Iconsax.shopping_bag5,
-            outlinedIcon: Iconsax.shopping_bag,
+            filledIcon: IconsaxPlusBold.notification,
+            outlinedIcon: IconsaxPlusBroken.notification_1,
           ),
           BarItem(
-            filledIcon: Icons.person,
-            outlinedIcon: Icons.person_2_outlined,
+            filledIcon: IconsaxPlusBold.profile,
+            outlinedIcon: IconsaxPlusBroken.profile,
           ),
         ],
       ),

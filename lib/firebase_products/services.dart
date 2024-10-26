@@ -1,7 +1,7 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:bag_shop/firebase_products/products_model.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
@@ -10,7 +10,6 @@ class DataServices extends ChangeNotifier {
     // fetchDataApi();
     readData();
   }
-  final refPath = FirebaseDatabase.instance.ref().child('Products');
 
   int currentIndex = 0;
   int i = 0;
@@ -63,6 +62,8 @@ class DataServices extends ChangeNotifier {
 
     var data = jsonDecode(response.body) as Map<String, dynamic>;
 
+    log(data.toString());
+
     for (var element in data.keys) {
       products.add(ProductsDetails.fromJson(data[element]));
     }
@@ -73,20 +74,15 @@ class DataServices extends ChangeNotifier {
   //TODO Create Fetch Using Sdk
 
   Future<void> readData() async {
-    DatabaseReference ref = FirebaseDatabase.instance.ref();
-    var snapshot = await ref.child('Products').get();
-
-    // var snapshot2 = await refPath.get();
-
-    for (var element in snapshot.children) {
-      productsV2.add(
-        ProductsDetails(
-          name: element.child('Name').value.toString(),
-          price: element.child('Price').value.toString(),
-          image: element.child('Image').value.toString(),
-        ),
-      );
-    }
+    // for (var element in snapshot.children) {
+    //   productsV2.add(
+    //     ProductsDetails(
+    //       name: element.child('Name').value.toString(),
+    //       price: element.child('Price').value.toString(),
+    //       image: element.child('Image').value.toString(),
+    //     ),
+    //   );
+    // }
 
     notifyListeners();
   }
