@@ -1,3 +1,4 @@
+import 'package:bag_shop/iconsax_icons.dart';
 import 'package:bag_shop/values.dart';
 import 'package:flutter/material.dart';
 import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
@@ -111,19 +112,19 @@ class _NavBarState extends State<NavBar> {
         },
         selectedIndex: selectedIndex,
         bottomPadding: 8,
-        waterDropColor: const Color(0xff3e4267),
+        waterDropColor: const Color.fromARGB(218, 100, 80, 91),
         barItems: [
           BarItem(
-            filledIcon: Icons.home,
-            outlinedIcon: Icons.home_outlined,
+            filledIcon: Iconsax.home1,
+            outlinedIcon: Iconsax.home,
           ),
           BarItem(
             filledIcon: Icons.favorite_rounded,
             outlinedIcon: Icons.favorite_border_rounded,
           ),
           BarItem(
-            filledIcon: Icons.shopping_cart,
-            outlinedIcon: Icons.shopping_cart_outlined,
+            filledIcon: Iconsax.shopping_bag5,
+            outlinedIcon: Iconsax.shopping_bag,
           ),
           BarItem(
             filledIcon: Icons.person,

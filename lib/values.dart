@@ -9,10 +9,10 @@ List<String> categories = [
   'New',
   'Women',
   'Brands',
-  'Best Sellers',
   'Men',
   'Sport ',
-  'Formal '
+  'Formal ',
+  'Best Sellers',
 ];
 List<Icon> drowerIcons = [
   const Icon(Icons.email),
@@ -29,8 +29,8 @@ List<String> drowernames = [
   "Settings",
 ];
 var items = [
-  const Products(),
   const Categories(),
+  const Products(),
   const PickProducts(), //0
   // const Cart(),
   const Settings(), //2
@@ -45,32 +45,32 @@ List<ShoesModel> cart = [];
 List<ShoesModel> shoseData = [
   ShoesModel(
     shoesImg: 'assets/images/shoes.jpg',
-    shoesName: 'Comfortable Travel Woman Shoes',
+    shoesName: ' Woman Shoes',
     shoesPrice: 10,
   ),
   ShoesModel(
     shoesImg: 'assets/images/shoes1.jpg',
-    shoesName: 'Coolest New Casual Men Shoes',
+    shoesName: ' Men Shoes',
     shoesPrice: 20,
   ),
   ShoesModel(
     shoesImg: 'assets/images/shoes2.jpg',
-    shoesName: 'Nice New Casual Leather Shoes ',
+    shoesName: ' Leather Shoes ',
     shoesPrice: 15,
   ),
   ShoesModel(
     shoesImg: 'assets/images/shoes3.jpg',
-    shoesName: 'Quality Casual  Shoes',
+    shoesName: 'Casual Shoes',
     shoesPrice: 30,
   ),
   ShoesModel(
     shoesImg: 'assets/images/shoes4.jpg',
-    shoesName: 'Men Black High Shoes',
+    shoesName: 'High Shoes',
     shoesPrice: 32,
   ),
   ShoesModel(
     shoesImg: 'assets/images/shoes5.jpg',
-    shoesName: 'Latest Men Summer Shoes',
+    shoesName: 'Summer Shoes',
     shoesPrice: 35,
   ),
 ];

@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:bag_shop/firebase_products/services.dart';
 import 'package:bag_shop/size_config.dart';
+import 'package:bag_shop/values.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:provider/provider.dart';
@@ -27,6 +28,7 @@ class Cart extends StatelessWidget {
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 50,
+                      color: Color(0xff64505b),
                     ),
                   ),
                   data.cart.isNotEmpty
@@ -112,6 +114,78 @@ class Cart extends StatelessWidget {
                                   ),
                                 ),
                               );
+                              //     Container(
+                              //   decoration: BoxDecoration(
+                              //     color: Colors.white,
+                              //     borderRadius: BorderRadius.circular(20),
+                              //     boxShadow: const [
+                              //       BoxShadow(
+                              //         blurRadius: 8,
+                              //         spreadRadius: 2,
+                              //         color: Color.fromARGB(124, 158, 158, 158),
+                              //       ),
+                              //     ],
+                              //   ),
+                              //   child: Padding(
+                              //     padding: const EdgeInsets.all(10.0),
+                              //     child: Column(
+                              //       mainAxisAlignment: MainAxisAlignment.center,
+                              //       children: [
+                              //         Card(
+                              //           shadowColor: Colors.grey,
+                              //           elevation: 10,
+                              //           clipBehavior: Clip.antiAlias,
+                              //           shape: RoundedRectangleBorder(
+                              //             borderRadius:
+                              //                 BorderRadius.circular(15),
+                              //           ),
+                              //           child: Image.asset(
+                              //             'assets/images/${data.cart[index].image}',
+                              //             fit: BoxFit.cover,
+                              //             height: 280,
+                              //             width: 220,
+                              //           ),
+                              //         ),
+                              //         const Gap(13),
+                              //         Align(
+                              //           alignment: Alignment.center,
+                              //           child: Text(
+                              //             '${data.cart[index].name}',
+                              //             textAlign: TextAlign.center,
+                              //             style: const TextStyle(
+                              //               fontSize: 15,
+                              //               fontWeight: FontWeight.bold,
+                              //               color: Color.fromARGB(
+                              //                   218, 100, 80, 91),
+                              //               fontFamily: "Noto",
+                              //             ),
+                              //           ),
+                              //         ),
+                              //         const Gap(35),
+                              //         Row(
+                              //           children: [
+                              //             Text(
+                              //               '${data.cart[index].price}',
+                              //               style: const TextStyle(
+                              //                   fontSize: 18,
+                              //                   // fontWeight: FontWeight.bold,
+                              //                   color: Colors.grey),
+                              //             ),
+                              //             InkWell(
+                              //               onTap: () {
+                              //                 data.removeFromCart(
+                              //                     data.cart[index]);
+                              //               },
+                              //               child: const Icon(
+                              //                   Icons.delete_forever),
+                              //             ),
+                              //             const Gap(110),
+                              //           ],
+                              //         ),
+                              //       ],
+                              //     ),
+                              //   ),
+                              // );
                             },
                           ),
                         )
@@ -148,7 +222,7 @@ class Cart extends StatelessWidget {
                           children: [
                             Expanded(
                               child: Container(
-                                color: Colors.grey,
+                                color: const Color.fromARGB(180, 100, 80, 91),
                                 padding: EdgeInsets.symmetric(
                                   horizontal: width(25),
                                 ),

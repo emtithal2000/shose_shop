@@ -25,7 +25,7 @@ class _SignUpState extends State<SignUp> {
               style: TextStyle(
                   fontSize: 50,
                   fontFamily: "Noto",
-                  color: Color(0xff3e4267),
+                  color: Color(0xff64505b),
                   fontWeight: FontWeight.bold),
             ),
             const Gap(80),
@@ -117,7 +117,7 @@ class _SignUpState extends State<SignUp> {
                 },
                 style: const ButtonStyle(
                   backgroundColor: WidgetStatePropertyAll(
-                    Color(0xff3e4267),
+                    Color(0xff64505b),
                   ),
                 ),
                 child: const Text(
@@ -147,7 +147,7 @@ class _SignUpState extends State<SignUp> {
                 "Already have account?",
                 style: TextStyle(
                   fontSize: 18,
-                  color: Color(0xff3e4267),
+                  color: Color(0xff64505b),
                 ),
               ),
             ),

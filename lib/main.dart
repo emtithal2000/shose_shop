@@ -1,3 +1,4 @@
+import 'package:bag_shop/categories.dart';
 import 'package:bag_shop/firebase/users_api.dart';
 import 'package:bag_shop/firebase_products/firebase_services.dart';
 import 'package:bag_shop/firebase_products/services.dart';
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const SplashPage(),
+      home: const NavBar(),
     );
   }
 }
