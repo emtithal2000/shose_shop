@@ -1,14 +1,14 @@
 {
   "project_info": {
-    "project_number": "744143365152",
-    "firebase_url": "https://pizzaapp-c7a34-default-rtdb.firebaseio.com",
-    "project_id": "pizzaapp-c7a34",
-    "storage_bucket": "pizzaapp-c7a34.appspot.com"
+    "project_number": "268295066252",
+    "firebase_url": "https://shoppingapp-e3f50-default-rtdb.firebaseio.com",
+    "project_id": "shoppingapp-e3f50",
+    "storage_bucket": "shoppingapp-e3f50.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:744143365152:android:73b32a91dd1b9b15078845",
+        "mobilesdk_app_id": "1:268295066252:android:78b2f769d3725e1cdde1a9",
         "android_client_info": {
           "package_name": "com.example.bag_shop"
         }
@@ -16,26 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCDlWcFhRlymHOJfqcjEGZiDk02fd3dZNU"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:744143365152:android:bb9acf06351896c0078845",
-        "android_client_info": {
-          "package_name": "com.example.fast_pizza"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCDlWcFhRlymHOJfqcjEGZiDk02fd3dZNU"
+          "current_key": "AIzaSyCKT8r7ORrKDiVoCMFlFsKnuAaX8wJxEEk"
         }
       ],
       "services": {

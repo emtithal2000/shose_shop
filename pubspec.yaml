@@ -45,7 +45,7 @@ dependencies:
   http:
   image_picker:
   iconsax_plus:
-
+  dio:
 
 
 
