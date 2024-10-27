@@ -45,7 +45,7 @@ List<ShoesModel> cart = [];
 List<ShoesModel> shoseData = [
   ShoesModel(
     shoesImg: 'assets/images/shoes.jpg',
-    shoesName: ' Woman Shoes',
+    shoesName: 'Woman Shoes',
     shoesPrice: 10,
   ),
   ShoesModel(

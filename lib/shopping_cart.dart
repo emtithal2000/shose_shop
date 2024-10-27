@@ -1,9 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:bag_shop/firebase_products/services.dart';
 import 'package:bag_shop/size_config.dart';
-import 'package:bag_shop/values.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:iconsax_plus/iconsax_plus.dart';
 import 'package:provider/provider.dart';
 
 class Cart extends StatelessWidget {
@@ -17,7 +17,7 @@ class Cart extends StatelessWidget {
           appBar: AppBar(
             scrolledUnderElevation: 0,
             elevation: 0,
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.transparent,
           ),
           body: Stack(
             children: [
@@ -34,174 +34,226 @@ class Cart extends StatelessWidget {
                   data.cart.isNotEmpty
                       ? SizedBox(
                           height: height(400),
-                          child: GridView.builder(
+                          child: ListView.separated(
                             itemCount: data.cart.length,
-                            physics: const BouncingScrollPhysics(),
-                            shrinkWrap: true,
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              crossAxisSpacing: 30,
-                              mainAxisSpacing: 30,
-                              mainAxisExtent: 210,
+                            padding: EdgeInsets.symmetric(
+                              horizontal: width(15),
                             ),
-                            padding: const EdgeInsets.all(25),
                             itemBuilder: (context, index) {
-                              return Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(20),
-                                  boxShadow: const [
-                                    BoxShadow(
-                                      blurRadius: 10,
-                                      spreadRadius: 1,
-                                      color: Colors.grey,
+                              var product = data.cart[index];
+                              return Card(
+                                elevation: 10,
+                                clipBehavior: Clip.hardEdge,
+                                child: Row(
+                                  children: [
+                                    Image.asset(
+                                      'assets/images/${product.image}',
+                                      height: height(65),
+                                    ),
+                                    Gap(width(15)),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          '${product.name}',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: width(15),
+                                          ),
+                                        ),
+                                        Text('${product.price}')
+                                      ],
+                                    ),
+                                    const Spacer(),
+                                    IconButton(
+                                      onPressed: () {},
+                                      color: Colors.red,
+                                      icon: const Icon(
+                                        IconsaxPlusLinear.trash,
+                                      ),
                                     ),
                                   ],
                                 ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Card(
-                                        shadowColor: Colors.grey,
-                                        elevation: 20,
-                                        clipBehavior: Clip.antiAlias,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(20),
-                                        ),
-                                        child: Image.asset(
-                                          'assets/images/${data.cart[index].image}',
-                                          fit: BoxFit.cover,
-                                          height: 100,
-                                        ),
-                                      ),
-                                      const Gap(15),
-                                      Align(
-                                        alignment: Alignment.center,
-                                        child: Text(
-                                          '${data.cart[index].name}',
-                                          textAlign: TextAlign.center,
-                                          style: const TextStyle(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                      const Gap(10),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: [
-                                          Text(
-                                            '${data.cart[index].price}',
-                                          ),
-                                          InkWell(
-                                            onTap: () {
-                                              data.removeFromCart(
-                                                  data.cart[index]);
-                                            },
-                                            child: const Icon(
-                                              Icons.delete_forever_rounded,
-                                              color: Colors.red,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
                               );
-                              //     Container(
-                              //   decoration: BoxDecoration(
-                              //     color: Colors.white,
-                              //     borderRadius: BorderRadius.circular(20),
-                              //     boxShadow: const [
-                              //       BoxShadow(
-                              //         blurRadius: 8,
-                              //         spreadRadius: 2,
-                              //         color: Color.fromARGB(124, 158, 158, 158),
-                              //       ),
-                              //     ],
-                              //   ),
-                              //   child: Padding(
-                              //     padding: const EdgeInsets.all(10.0),
-                              //     child: Column(
-                              //       mainAxisAlignment: MainAxisAlignment.center,
-                              //       children: [
-                              //         Card(
-                              //           shadowColor: Colors.grey,
-                              //           elevation: 10,
-                              //           clipBehavior: Clip.antiAlias,
-                              //           shape: RoundedRectangleBorder(
-                              //             borderRadius:
-                              //                 BorderRadius.circular(15),
-                              //           ),
-                              //           child: Image.asset(
-                              //             'assets/images/${data.cart[index].image}',
-                              //             fit: BoxFit.cover,
-                              //             height: 280,
-                              //             width: 220,
-                              //           ),
-                              //         ),
-                              //         const Gap(13),
-                              //         Align(
-                              //           alignment: Alignment.center,
-                              //           child: Text(
-                              //             '${data.cart[index].name}',
-                              //             textAlign: TextAlign.center,
-                              //             style: const TextStyle(
-                              //               fontSize: 15,
-                              //               fontWeight: FontWeight.bold,
-                              //               color: Color.fromARGB(
-                              //                   218, 100, 80, 91),
-                              //               fontFamily: "Noto",
-                              //             ),
-                              //           ),
-                              //         ),
-                              //         const Gap(35),
-                              //         Row(
-                              //           children: [
-                              //             Text(
-                              //               '${data.cart[index].price}',
-                              //               style: const TextStyle(
-                              //                   fontSize: 18,
-                              //                   // fontWeight: FontWeight.bold,
-                              //                   color: Colors.grey),
-                              //             ),
-                              //             InkWell(
-                              //               onTap: () {
-                              //                 data.removeFromCart(
-                              //                     data.cart[index]);
-                              //               },
-                              //               child: const Icon(
-                              //                   Icons.delete_forever),
-                              //             ),
-                              //             const Gap(110),
-                              //           ],
-                              //         ),
-                              //       ],
-                              //     ),
-                              //   ),
-                              // );
+                            },
+                            separatorBuilder: (context, index) {
+                              return Gap(height(15));
                             },
                           ),
                         )
-                      : Container(
-                          alignment: Alignment.center,
-                          padding: EdgeInsets.only(
-                            top: height(300),
-                          ),
-                          child: Text(
-                            'No Item In Cart',
-                            style: TextStyle(
-                              fontSize: width(30),
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
+                      : Container(),
+                  // data.cart.isNotEmpty
+                  //     ? SizedBox(
+                  //         height: height(400),
+                  //         child: GridView.builder(
+                  //           itemCount: data.cart.length,
+                  //           physics: const BouncingScrollPhysics(),
+                  //           shrinkWrap: true,
+                  //           gridDelegate:
+                  //               const SliverGridDelegateWithFixedCrossAxisCount(
+                  //             crossAxisCount: 2,
+                  //             crossAxisSpacing: 30,
+                  //             mainAxisSpacing: 30,
+                  //             mainAxisExtent: 210,
+                  //           ),
+                  //           padding: const EdgeInsets.all(25),
+                  //           itemBuilder: (context, index) {
+                  //             return Container(
+                  //               decoration: BoxDecoration(
+                  //                 color: Colors.white,
+                  //                 borderRadius: BorderRadius.circular(20),
+                  //                 boxShadow: const [
+                  //                   BoxShadow(
+                  //                     blurRadius: 10,
+                  //                     spreadRadius: 1,
+                  //                     color: Colors.grey,
+                  //                   ),
+                  //                 ],
+                  //               ),
+                  //               child: Padding(
+                  //                 padding: const EdgeInsets.all(8.0),
+                  //                 child: Column(
+                  //                   mainAxisAlignment: MainAxisAlignment.center,
+                  //                   children: [
+                  //                     Card(
+                  //                       shadowColor: Colors.grey,
+                  //                       elevation: 20,
+                  //                       clipBehavior: Clip.antiAlias,
+                  //                       shape: RoundedRectangleBorder(
+                  //                         borderRadius:
+                  //                             BorderRadius.circular(20),
+                  //                       ),
+                  //                       child: Image.asset(
+                  //                         'assets/images/${data.cart[index].image}',
+                  //                         fit: BoxFit.cover,
+                  //                         height: 100,
+                  //                       ),
+                  //                     ),
+                  //                     const Gap(15),
+                  //                     Align(
+                  //                       alignment: Alignment.center,
+                  //                       child: Text(
+                  //                         '${data.cart[index].name}',
+                  //                         textAlign: TextAlign.center,
+                  //                         style: const TextStyle(
+                  //                           fontSize: 12,
+                  //                           fontWeight: FontWeight.bold,
+                  //                         ),
+                  //                       ),
+                  //                     ),
+                  //                     const Gap(10),
+                  //                     Row(
+                  //                       mainAxisAlignment:
+                  //                           MainAxisAlignment.spaceAround,
+                  //                       children: [
+                  //                         Text(
+                  //                           '${data.cart[index].price}',
+                  //                         ),
+                  //                         InkWell(
+                  //                           onTap: () {
+                  //                             data.removeFromCart(
+                  //                                 data.cart[index]);
+                  //                           },
+                  //                           child: const Icon(
+                  //                             Icons.delete_forever_rounded,
+                  //                             color: Colors.red,
+                  //                           ),
+                  //                         ),
+                  //                       ],
+                  //                     ),
+                  //                   ],
+                  //                 ),
+                  //               ),
+                  //             );
+                  //             //     Container(
+                  //             //   decoration: BoxDecoration(
+                  //             //     color: Colors.white,
+                  //             //     borderRadius: BorderRadius.circular(20),
+                  //             //     boxShadow: const [
+                  //             //       BoxShadow(
+                  //             //         blurRadius: 8,
+                  //             //         spreadRadius: 2,
+                  //             //         color: Color.fromARGB(124, 158, 158, 158),
+                  //             //       ),
+                  //             //     ],
+                  //             //   ),
+                  //             //   child: Padding(
+                  //             //     padding: const EdgeInsets.all(10.0),
+                  //             //     child: Column(
+                  //             //       mainAxisAlignment: MainAxisAlignment.center,
+                  //             //       children: [
+                  //             //         Card(
+                  //             //           shadowColor: Colors.grey,
+                  //             //           elevation: 10,
+                  //             //           clipBehavior: Clip.antiAlias,
+                  //             //           shape: RoundedRectangleBorder(
+                  //             //             borderRadius:
+                  //             //                 BorderRadius.circular(15),
+                  //             //           ),
+                  //             //           child: Image.asset(
+                  //             //             'assets/images/${data.cart[index].image}',
+                  //             //             fit: BoxFit.cover,
+                  //             //             height: 280,
+                  //             //             width: 220,
+                  //             //           ),
+                  //             //         ),
+                  //             //         const Gap(13),
+                  //             //         Align(
+                  //             //           alignment: Alignment.center,
+                  //             //           child: Text(
+                  //             //             '${data.cart[index].name}',
+                  //             //             textAlign: TextAlign.center,
+                  //             //             style: const TextStyle(
+                  //             //               fontSize: 15,
+                  //             //               fontWeight: FontWeight.bold,
+                  //             //               color: Color.fromARGB(
+                  //             //                   218, 100, 80, 91),
+                  //             //               fontFamily: "Noto",
+                  //             //             ),
+                  //             //           ),
+                  //             //         ),
+                  //             //         const Gap(35),
+                  //             //         Row(
+                  //             //           children: [
+                  //             //             Text(
+                  //             //               '${data.cart[index].price}',
+                  //             //               style: const TextStyle(
+                  //             //                   fontSize: 18,
+                  //             //                   // fontWeight: FontWeight.bold,
+                  //             //                   color: Colors.grey),
+                  //             //             ),
+                  //             //             InkWell(
+                  //             //               onTap: () {
+                  //             //                 data.removeFromCart(
+                  //             //                     data.cart[index]);
+                  //             //               },
+                  //             //               child: const Icon(
+                  //             //                   Icons.delete_forever),
+                  //             //             ),
+                  //             //             const Gap(110),
+                  //             //           ],
+                  //             //         ),
+                  //             //       ],
+                  //             //     ),
+                  //             //   ),
+                  //             // );
+                  //           },
+                  //         ),
+                  //       )
+                  //     : Container(
+                  //         alignment: Alignment.center,
+                  //         padding: EdgeInsets.only(
+                  //           top: height(300),
+                  //         ),
+                  //         child: Text(
+                  //           'No Item In Cart',
+                  //           style: TextStyle(
+                  //             fontSize: width(30),
+                  //             fontWeight: FontWeight.bold,
+                  //           ),
+                  //         ),
+                  //       ),
                 ],
               ),
               data.cart.isNotEmpty

@@ -1,4 +1,5 @@
 import 'package:bag_shop/firebase_products/services.dart';
+import 'package:bag_shop/shopping_cart.dart';
 import 'package:bag_shop/size_config.dart';
 import 'package:bag_shop/values.dart';
 import 'package:flutter/material.dart';
@@ -27,12 +28,12 @@ class _CategoriesState extends State<Categories> {
             actions: [
               InkWell(
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => const Cart(),
-                  //   ),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Cart(),
+                    ),
+                  );
                 },
                 child: Badge.count(
                   count: data.cart.length,
