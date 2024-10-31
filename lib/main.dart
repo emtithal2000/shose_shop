@@ -1,8 +1,8 @@
 import 'package:bag_shop/firebase/users_api.dart';
 import 'package:bag_shop/firebase_products/firebase_services.dart';
 import 'package:bag_shop/firebase_products/services.dart';
-import 'package:bag_shop/nav_bar.dart';
 import 'package:bag_shop/size_config.dart';
+import 'package:bag_shop/smoking_background.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const NavBar(),
+      home: const SmokingBackground(),
     );
   }
 }
