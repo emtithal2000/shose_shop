@@ -1,4 +1,4 @@
-# Project Name
+# Shoes App
 
 ![Project Logo](https://via.placeholder.com/150)
 
